@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webws.xpf.mapper.HibernateSequenceMapper">
+  <resultMap id="BaseResultMap" type="com.webws.xpf.model.HibernateSequence">
+    <result column="next_val" jdbcType="BIGINT" property="nextVal" />
+  </resultMap>
+  <insert id="insert" parameterType="com.webws.xpf.model.HibernateSequence">
+    insert into hibernate_sequence (next_val)
+    values (#{nextVal,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.webws.xpf.model.HibernateSequence">
+    insert into hibernate_sequence
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nextVal != null">
+        next_val,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nextVal != null">
+        #{nextVal,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration stauts="INFO">
+
+    <Appenders>
+        <!--添加一个控制台追加器-->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+             <PatternLayout>
+                 <pattern>[%-5p] xpf %d %c - %m%n</pattern>
+             </PatternLayout>
+        </Console>
+
+        <File name="File" fileName="jzh.log">
+            <PatternLayout>
+                <pattern>
+                    [%-5p] xpf %d %c - %m%n
+                </pattern>
+            </PatternLayout>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+        <File name="dataBaseFile" fileName="dataBase.log">
+            <PatternLayout>
+                <pattern>
+                    [%-5p] xpf %d %c - %m%n
+                </pattern>
+            </PatternLayout>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level = "debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="org.hibernate" level="info" additivity="false">
+            <AppenderRef ref="dataBaseFile"/>
+        </Logger>
+        <Logger name="org.mybatis" level="info" additivity="false">
+            <AppenderRef ref="dataBaseFile"/>
+        </Logger>
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="File"/>
+        </Logger>
+
+    </Loggers>
+
+
+</Configuration>

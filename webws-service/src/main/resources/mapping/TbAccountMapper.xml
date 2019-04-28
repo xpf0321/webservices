@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webws.xpf.mapper.TbAccountMapper">
+  <resultMap id="BaseResultMap" type="com.webws.xpf.model.TbAccount">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account_type" jdbcType="BIT" property="accountType" />
+    <result column="account_code" jdbcType="VARCHAR" property="accountCode" />
+    <result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="status_code" jdbcType="TINYINT" property="statusCode" />
+    <result column="operator_id" jdbcType="BIGINT" property="operatorId" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="login_failer_count" jdbcType="INTEGER" property="loginFailerCount" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="system_source" jdbcType="CHAR" property="systemSource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account_type, account_code, mobilephone, email, login_name, password, real_name, 
+    is_delete, status_code, operator_id, add_time, update_time, login_failer_count, last_login_time, 
+    system_source
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.webws.xpf.model.TbAccount">
+    insert into tb_account (id, account_type, account_code, 
+      mobilephone, email, login_name, 
+      password, real_name, is_delete, 
+      status_code, operator_id, add_time, 
+      update_time, login_failer_count, last_login_time, 
+      system_source)
+    values (#{id,jdbcType=BIGINT}, #{accountType,jdbcType=BIT}, #{accountCode,jdbcType=VARCHAR}, 
+      #{mobilephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}, 
+      #{statusCode,jdbcType=TINYINT}, #{operatorId,jdbcType=BIGINT}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{loginFailerCount,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{systemSource,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.webws.xpf.model.TbAccount">
+    insert into tb_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accountType != null">
+        account_type,
+      </if>
+      <if test="accountCode != null">
+        account_code,
+      </if>
+      <if test="mobilephone != null">
+        mobilephone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="statusCode != null">
+        status_code,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="loginFailerCount != null">
+        login_failer_count,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="systemSource != null">
+        system_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="accountType != null">
+        #{accountType,jdbcType=BIT},
+      </if>
+      <if test="accountCode != null">
+        #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="statusCode != null">
+        #{statusCode,jdbcType=TINYINT},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginFailerCount != null">
+        #{loginFailerCount,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="systemSource != null">
+        #{systemSource,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.webws.xpf.model.TbAccount">
+    update tb_account
+    <set>
+      <if test="accountType != null">
+        account_type = #{accountType,jdbcType=BIT},
+      </if>
+      <if test="accountCode != null">
+        account_code = #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="statusCode != null">
+        status_code = #{statusCode,jdbcType=TINYINT},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginFailerCount != null">
+        login_failer_count = #{loginFailerCount,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="systemSource != null">
+        system_source = #{systemSource,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.webws.xpf.model.TbAccount">
+    update tb_account
+    set account_type = #{accountType,jdbcType=BIT},
+      account_code = #{accountCode,jdbcType=VARCHAR},
+      mobilephone = #{mobilephone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=BIT},
+      status_code = #{statusCode,jdbcType=TINYINT},
+      operator_id = #{operatorId,jdbcType=BIGINT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      login_failer_count = #{loginFailerCount,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      system_source = #{systemSource,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

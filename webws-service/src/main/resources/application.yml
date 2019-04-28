@@ -1,0 +1,23 @@
+# \u670D\u52A1\u7AEF\u53E3
+server:
+  port: 8999
+# \u6570\u636E\u5E93\u8FDE\u63A5\u4FE1\u606F
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123123
+    username: root
+    url: jdbc:mysql://localhost:3306/test
+    type: com.alibaba.druid.pool.DruidDataSource
+thymeleaf:
+  cache: false
+  mode: LEGACYHTML5
+# mybatis
+mapper:
+  mappers: com.webws.xpf.utils.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+mybatis:
+  type-aliases-package: com.webws.xpf.model
+  mapper-locations: mapping/*.xml
