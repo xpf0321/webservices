@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.11 生成的
+请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+在重新编译源模式时, 对此文件的所有修改都将丢失。
+生成时间: 2019.04.29 时间 08:53:15 AM CST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://xpf.webws.com/ws/user">
+    <schemaBindings map="false">
+      <package name="com.webws.xpf.ws.user"/>
+    </schemaBindings>
+    <bindings scd="tns:getUserRequest">
+      <class ref="com.webws.xpf.ws.user.GetUserRequest"/>
+    </bindings>
+    <bindings scd="tns:getUserResponse">
+      <class ref="com.webws.xpf.ws.user.GetUserResponse"/>
+    </bindings>
+    <bindings scd="~tns:User">
+      <class ref="com.webws.xpf.ws.user.User"/>
+    </bindings>
+  </bindings>
+</bindings>
+
